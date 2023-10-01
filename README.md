@@ -2,7 +2,7 @@
    Gm API 开放平台
 </h1>
 <p align="center">
-<img src="doc/images/banner.png" alt="image-20230623213937364" style="zoom:100%;" align="center" />
+<img src="doc/images/banner.png" alt="image-20230623213937364" style="zoom:200%;" align="center" />
 </p>
 <p align="center">
 <a target="_blank" href="https://github.com/Gumengyo/gmapi-backend">
