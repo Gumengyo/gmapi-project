@@ -1,0 +1,47 @@
+server:
+  port: 8090
+
+spring:
+  main:
+    allow-circular-references: true
+  cloud:
+    gateway:
+      routes:
+        - id: gmapiInterface
+          uri: http://localhost:8123
+          predicates:
+            - Path=/api/interface/**
+        - id: gmapiThirdParty
+          uri: http://localhost:7531
+          predicates:
+            - Path=/api/alipay/**
+        - id: gmapiOrder
+          uri: http://localhost:7530
+          predicates:
+            - Path=/api/order/**
+        - id: gmapiBackend
+          uri: lb://gmapi-backend
+          predicates:
+            - Path=/api/**
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/gmapi?serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: trace
+dubbo:
+  application:
+    name: dubbo-customer
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    id: nacos-registry
+    address: nacos://localhost:8848

@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: gmapi-interface
+  profiles:
+    active: dev  #生成环境未prod ，开发环境为dev
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      config:
+        namespace: dev
+        group: gmapi-project
+        file-extension: yaml
+        refresh-enabled: true
+      discovery:
+        namespace: dev
+        group: gmapi-project
